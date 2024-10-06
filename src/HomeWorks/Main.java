@@ -19,7 +19,16 @@ public class Main {
         System.out.println(Methods.printFullName(name, surname));
 
         String[] strings = {"One", "Two", "Three", "Four", "Five"};
+        int[] intNumbers = {1, 2, 3, 4, 5};
+        char[] charSymbol = {'A', 'b', 'C', 'd', 'E', 'f'};
         System.out.println(Arrays.toString(Methods.cornerValuesArray(strings)));
+        System.out.println(Arrays.toString(Methods.cornerValuesArray(intNumbers)));
+        System.out.println(Arrays.toString(Methods.cornerValuesArray(charSymbol)));
+
+
+
+
+
 
 
     }
