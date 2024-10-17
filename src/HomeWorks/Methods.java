@@ -1,15 +1,11 @@
 package HomeWorks;
 
-//  0. Создайте новый класс Methods и все методы делайте в нём (методы должны быть статическими),
-//  а вызывать их надо из метода main, как обычно (как мы делали с Calculator на занятии).
-//  Т.е. нужно каждый метод вызвать с разными параметрами, чтобы проверить их работу
 
 public class Methods {
 
-//  1. Создайте метод square, который принимает одно целое число и возвращает его квадрат,
-//  затем вызовите его с разными значениями и выведите результат
 
-    /** Выводит число в квадрат
+    /**
+     * Выводит число в квадрат
      *
      * @param intSquare int с переменными для возведения в квадрат
      * @return сумма параметра int
@@ -18,7 +14,8 @@ public class Methods {
         return intSquare * intSquare;
     }
 
-    /** Выводит число в квадрат
+    /**
+     * Выводит число в квадрат
      *
      * @param doubleSquare double с переменными для возведения в квадрат
      * @return сумма параметра double
@@ -27,7 +24,8 @@ public class Methods {
         return doubleSquare * doubleSquare;
     }
 
-    /** Выводит число в квадрат
+    /**
+     * Выводит число в квадрат
      *
      * @param longSquare long с переменными для возведения в квадрат
      * @return сумма параметра long
@@ -36,12 +34,11 @@ public class Methods {
         return longSquare * longSquare;
     }
 
-//  2. Создайте метод printFullName, который принимает два параметра типа String — имя и фамилию —
-//  и выводит полное имя в формате: "Full name: Имя Фамилия"
 
-    /** Принимает два параметра типа String
+    /**
+     * Принимает два параметра типа String
      *
-     * @param name name
+     * @param name    name
      * @param surname String с переменными для вывода имени и фамилии
      * @return Строка и сумма параметров String
      */
@@ -51,73 +48,93 @@ public class Methods {
         return fullName;
     }
 
-//  3. Создайте метод cornerValuesArray, который принимает массив строк,
-//  а возвращает массив строк из двух элементов – самая короткая и самая длинная строка в исходном массиве
+//  0. В методах из прошлого ДЗ, где надо было находить минимальные и максимальные значения (строк, интов и чаров),
+//  ввести проверку массива на пустоту, а также добавить несколько вызовов этих методов с разными параметрами,
+//  чтобы проверить корнер-кейсы (т.е. проверить функциональность методов для разных данных, в т.ч. с пустым массивом)
 
-    /** Принимает массив строк, сравнивает и выявляет самую длинную и самую короткую строку
+    /**
+     * Принимает массив строк, сравнивает и выявляет самую длинную и самую короткую строку
      *
      * @param strings Массив типа String с переменной
      * @return Возвращает переменную типа String - самую короткую и самую длинную строку
      */
     static String[] cornerValuesArray(String[] strings) {
-        String min = strings[0];
-        String max = strings[0];
+        if (strings.length == 0) {
+            return new String[0];
+        }
 
-        for (String string : strings) {
-            if (string.length() < min.length()) {
-                min = string;
-            } else if (string.length() > max.length()) {
-                max = string;
+        String[] stringNumbersArray = new String[]{strings[0], strings[0]};
+
+        for (String stringNumber : strings) {
+            if (stringNumber.length() < stringNumbersArray[0].length()) {
+                stringNumbersArray[0] = stringNumber;
+            } else if (stringNumber.length() > stringNumbersArray[1].length()) {
+                stringNumbersArray[1] = stringNumber;
             }
         }
-        return new String[]{min, max};
+        return stringNumbersArray;
     }
 
-//  0.	Продолжаем писать код в прошлом ДЗ (не в новых файлах, а дополняем уже написанный код). Требования по вызову методов, названиям и форматированию те же
-//  1.	Пункт 3 из прошлого ДЗ дополнить перегруженными методами (там принимался массив строк, а возвращался массив с самой короткой и самой длинной строкой)
-//  – теперь надо добавить еще два метода с таким же названием, но другими параметрами - не массив строк,
-//  а массив int и массив char (и находить, соответственно, минимальное и максимальное число int, самый маленький и самый большой символ –
-//  (помним что у каждого символа есть код в юникоде, поэтому их можно сравнивать)
-//  2.	В этих методах заменить параметры – вместо массивов строк, интов и даблов применить varargs (String… strings и т.д.)
-//  3.	Для всех методов из этой и предыдущей домашки написать Javadocs с описанием работы метода, описанием параметра и возвращаемого результата
 
-    /** Сравнивает и выявляет минимальное и максимальное число
+    /**
+     * Сравнивает и выявляет минимальное и максимальное число
      *
      * @param intNumbers varargs с переменной типа int
      * @return Возвращает две переменные типа int - самое маленькое и самое большое число
      */
     static int[] cornerValuesArray(int... intNumbers) {
-        int min = intNumbers[0];
-        int max = intNumbers[0];
+        if (intNumbers.length == 0) {
+            return new int[0];
+        }
+
+        int[] intNumbersArray = new int[]{intNumbers[0], intNumbers[0]};
 
         for (int number : intNumbers) {
-            if (number < min) {
-                min = number;
-            } else if (number > max) {
-                max = number;
+            if (number < intNumbersArray[0]) {
+                intNumbersArray[0] = number;
+            } else if (number > intNumbersArray[1]) {
+                intNumbersArray[1] = number;
             }
         }
-        return new int[]{min, max};
+        return intNumbersArray;
 
     }
 
-    /** Сравнивает и выявляет самый большой и самый маленький символ
+    /**
+     * Сравнивает и выявляет самый большой и самый маленький символ
      *
      * @param charSymbol varargs с переменной типа char
      * @return Возвращает две переменные типа char - самый большой и самый маленький символ
      */
     static char[] cornerValuesArray(char... charSymbol) {
-        char min = charSymbol[0];
-        char max = charSymbol[0];
+        if (charSymbol.length == 0) {
+            return new char[0];
+        }
+
+        char[] charSymbolArray = new char[]{charSymbol[0], charSymbol[0]};
 
         for (char symbol : charSymbol) {
-            if (symbol < min) {
-                min = symbol;
-            } else if (symbol > max) {
-                max = symbol;
+            if (symbol < charSymbolArray[0]) {
+                charSymbolArray[0] = symbol;
+            } else if (symbol > charSymbolArray[1]) {
+                charSymbolArray[1] = symbol;
             }
 
         }
-        return new char[]{min, max};
+        return charSymbolArray;
+    }
+
+//    1. Написать в том же классе новый метод - нахождение факториала с помощью рекурсивного вызова метода,
+//    не забыв про базовый случай в рекурсии
+//    (+ дополнительно для себя поэкспериментировать - сымитировать переполнение стека в том случае,
+//    если базовый случай не определен или определен неверно)
+
+    static int factorial(int number) {
+        // Базовый случай
+        if (number == 1) {
+            return 1;
+        } else {
+            return number * factorial(number - 1);
+        }
     }
 }
