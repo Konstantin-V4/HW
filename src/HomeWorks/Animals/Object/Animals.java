@@ -9,10 +9,10 @@ public class Animals {
         this.name = name;
     }
     public void makeSound() {
-        System.out.println(this);
+        System.out.print(this + ", Звук животного: ");
     }
     public void eat() {
-        System.out.println(this);
+        System.out.print(this);
     }
 
     public String getName() {

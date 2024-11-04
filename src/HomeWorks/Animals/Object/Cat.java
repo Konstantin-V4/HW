@@ -8,11 +8,13 @@ public class Cat extends Animals{
 
     @Override
     public void makeSound() {
-        System.out.println(this + ", Звук животного: Мяу");
+        super.makeSound();
+        System.out.println("Мяу");
     }
 
     @Override
     public void eat() {
-        System.out.println(this + ", Кошка ест рыбу");
+        super.eat();
+        System.out.println(", Кошка ест рыбу");
     }
 }

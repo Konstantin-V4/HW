@@ -8,12 +8,14 @@ public class Dog extends Animals {
 
     @Override
     public void makeSound() {
-        System.out.println(this + ", Звук животного: Гав-гав");
+        super.makeSound();
+        System.out.println("Гав-гав");
     }
 
     @Override
     public void eat() {
-        System.out.println(this + ", Собака ест кость");
+        super.eat();
+        System.out.println(", Собака ест кость");
     }
 
 }

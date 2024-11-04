@@ -11,12 +11,13 @@ public class Bird extends Animals{
 
     @Override
     public void makeSound() {
-        System.out.println(this + ", Звук животного: Чирик-чирик");
+        super.makeSound();
+        System.out.println("Чирик-чирик");
     }
 
     @Override
     public void eat() {
-        System.out.println(this + ", Птица ест семена");
+        System.out.println(super.toString() + ", Птица ест семена");
     }
 
     @Override
