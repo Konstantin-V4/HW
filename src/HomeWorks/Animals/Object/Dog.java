@@ -1,6 +1,6 @@
 package HomeWorks.Animals.Object;
 
-public class Dog extends Animals {
+public class Dog extends Animals implements Pet {
 
     public Dog(String name) {
         super(name);
@@ -8,8 +8,12 @@ public class Dog extends Animals {
 
     @Override
     public void makeSound() {
-        super.makeSound();
-        System.out.println("Гав-гав");
+        System.out.println(super.toString() + ", Звук животного: Гав-гав");
+    }
+
+    @Override
+    public void move() {
+        System.out.println(super.toString() + ", Собака ходит");
     }
 
     @Override
@@ -18,4 +22,13 @@ public class Dog extends Animals {
         System.out.println(", Собака ест кость");
     }
 
+    @Override
+    public void play() {
+        System.out.println("Собака играет с костью");
+    }
+
+    @Override
+    public void beFriendly() {
+        System.out.println("Поведение дружелюбное");
+    }
 }

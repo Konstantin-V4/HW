@@ -1,18 +1,25 @@
 package HomeWorks.Animals.Object;
 
-public class Bird extends Animals{
+public class Bird extends Animals {
     boolean canFly;
 
     public Bird(String name) {
         super(name);
         this.canFly = true;
-
     }
 
     @Override
     public void makeSound() {
-        super.makeSound();
-        System.out.println("Чирик-чирик");
+        System.out.println(super.toString() + ", Звук животного: Чирик-чирик" + this);
+    }
+
+    @Override
+    public void move() {
+        if (canFly == true) {
+            System.out.println(super.toString() + ", Птица летает");
+        } else if (canFly == false) {
+            System.out.println(super.toString() + ", Птица не летает");
+        }
     }
 
     @Override
@@ -22,6 +29,6 @@ public class Bird extends Animals{
 
     @Override
     public String toString() {
-        return super.toString() + ", Может ли летать?: " + canFly;
+        return ", Может ли летать?: " + canFly;
     }
 }

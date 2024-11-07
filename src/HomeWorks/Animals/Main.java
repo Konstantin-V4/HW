@@ -1,9 +1,6 @@
 package HomeWorks.Animals;
 
-import HomeWorks.Animals.Object.Animals;
-import HomeWorks.Animals.Object.Bird;
-import HomeWorks.Animals.Object.Cat;
-import HomeWorks.Animals.Object.Dog;
+import HomeWorks.Animals.Object.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,11 +12,13 @@ public class Main {
         Animals[] animals = {dog1, cat1, bird1};
         for (Animals animal : animals) {
             animal.makeSound();
-        }
-
-        Animals[] animalsEat = {dog1, cat1, bird1};
-        for (Animals animal : animalsEat) {
             animal.eat();
+            animal.move();
+
+            if (animal instanceof Pet) {
+                ((Pet) animal).play();
+                ((Pet) animal).beFriendly();
+            }
         }
     }
 }
