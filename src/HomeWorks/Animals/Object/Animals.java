@@ -2,15 +2,16 @@ package HomeWorks.Animals.Object;
 
 import HomeWorks.Methods;
 
-public class Animals {
+public abstract class Animals {
     protected String name;
 
     public Animals(String name) {
         this.name = name;
     }
-    public void makeSound() {
-        System.out.print(this + ", Звук животного: ");
-    }
+    public abstract void makeSound();
+
+    public abstract void move();
+
     public void eat() {
         System.out.print(this);
     }
